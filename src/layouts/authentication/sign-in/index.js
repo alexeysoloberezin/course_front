@@ -1,11 +1,7 @@
- 
-
 import { useState } from "react";
 
-// react-router-dom components
 import { Link } from "react-router-dom";
 
-// Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 import VuiInput from "components/VuiInput";
@@ -13,25 +9,36 @@ import VuiButton from "components/VuiButton";
 import VuiSwitch from "components/VuiSwitch";
 import GradientBorder from "examples/GradientBorder";
 
-// Vision UI Dashboard assets
 import radialGradient from "assets/theme/functions/radialGradient";
 import palette from "assets/theme/base/colors";
 import borders from "assets/theme/base/borders";
 
-// Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
-// Images
 import bgSignIn from "assets/images/signInImage.png";
+import useAuthStore from "../../../store/AuthStore";
+import {useQuery} from "react-query";
+import ApiUser from "../../../api/user";
+import apiAuth from "../../../api/auth";
+
+const fetchUsers = async () => {
+  return await ApiUser.getUsers()
+}
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
 
+  const { data } = useQuery('users', fetchUsers)
+
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const login = () => {
+    const res = apiAuth.login({email: '123', password: '123'})
+  }
 
   return (
     <CoverLayout
-      title=" Nice to see you!"
+      title="Nice to see you!"
       color="white"
       description="Enter your email and password to sign in"
       premotto="INSPIRED BY THE FUTURE:"
@@ -95,7 +102,7 @@ function SignIn() {
             &nbsp;&nbsp;&nbsp;&nbsp;Remember me
           </VuiTypography>
         </VuiBox>
-        <VuiBox mt={4} mb={1}>
+        <VuiBox mt={4} mb={1} onClick={login}>
           <VuiButton color="info" fullWidth>
             SIGN IN
           </VuiButton>

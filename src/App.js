@@ -13,6 +13,8 @@ import Icon from "@mui/material/Icon";
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
 
+import toast, { Toaster } from 'react-hot-toast';
+
 // Vision UI Dashboard React example components
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
@@ -117,6 +119,7 @@ export default function App() {
   );
 
   return <ThemeProvider theme={theme}>
+      <Toaster position={'top-right'} toastOptions={{style: {background: '#242442', color: 'white',fontSize: '14px', boxShadow: '0 0 5px #282867FF', border: "1px solid #282867FF"}}}/>
       <CssBaseline />
       {layout === "dashboard" && (
         <>

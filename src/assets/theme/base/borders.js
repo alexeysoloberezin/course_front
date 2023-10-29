@@ -38,6 +38,6 @@ export default {
     xl: pxToRem(20),
     xxl: pxToRem(24),
     form: pxToRem(24),
-    section: pxToRem(160),
+    section: pxToRem(120),
   },
 };

@@ -42,16 +42,10 @@ function CoverLayout({
         gradients.cover.angle
       )}
     >
-      <DefaultNavbar
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/vision-ui-dashboard-pro-react",
-          label: "BUY NOW",
-        }}
-      />
+
       <VuiBox
         height="100%"
-        width="50vw"
+        width="40vw"
         display={{ xs: "none", md: "block" }}
         position="absolute"
         top={0}
@@ -114,7 +108,7 @@ function CoverLayout({
         }}
       >
         <VuiBox
-          mt={top}
+          mt={'50px'}
           ml="auto !important"
           sx={({ breakpoints }) => ({
             [breakpoints.down("xl")]: {
@@ -131,7 +125,7 @@ function CoverLayout({
             },
           })}
         >
-          <VuiBox pt={3} px={3} mx="auto !important" maxWidth={cardContent ? "400px" : "350px"}>
+          <VuiBox pt={3} px={3} mx="auto !important"  maxWidth={cardContent ? "600px" : "450px"}>
             {!header ? (
               <>
                 <VuiBox mb="35px">
@@ -162,13 +156,14 @@ function CoverLayout({
             )}
           </VuiBox>
           <VuiBox
+            width={'500px'}
             px={3}
             mb="50px"
             mx="auto"
             ml="auto !important"
             sx={({ breakpoints }) => ({
               mt: cardContent ? "60px" : { top },
-              maxWidth: cardContent ? "450px" : "350px",
+              maxWidth: cardContent ? "650px" : "450px",
               [breakpoints.down("xl")]: {
                 mr: cardContent ? "0px" : "100px",
               },
@@ -189,7 +184,6 @@ function CoverLayout({
           >
             {children}
           </VuiBox>
-          <Footer />
         </VuiBox>
       </VuiBox>
     </PageLayout>
